@@ -122,9 +122,11 @@ contract CryptoDevsDAO is Ownable {
         require(nftMarketplace.available(_nftTokenId), "NFT_NOT_FOR_SALE");
         Proposal storage proposal = proposals[numProposals];
         proposal.nftTokenId = _nftTokenId;
+        // Set the proposal's voting deadline to be (current time + 5 minutes)
         proposal.deadline = block.timestamp + 5 minutes;
 
         numProposals++;
+
         return numProposals - 1;
     }
 
