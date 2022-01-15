@@ -58,9 +58,24 @@ To do so, we will use the [Hardhat](https://hardhat.org) development framework w
 
   Now that you have installed Hardhat, we can setup a project. Execute the following command in your terminal.
 
+- In the same directory where you installed Hardhat run:
+
   ```bash
   npx hardhat
   ```
+
+  - Select `Create a basic sample project`
+  - Press enter for the already specified `Hardhat Project root`
+  - Press enter for the question on if you want to add a `.gitignore`
+  - Press enter for `Do you want to install this sample project's dependencies with npm (@nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers)?`
+
+    Now you have a hardhat project ready to go!
+
+    If you are not on mac, please do this extra step and install these libraries as well :)
+
+    ```bash
+    npm install --save-dev @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers
+    ```
 
   and press `Enter` for all the questions (Choose the `Create a basic sample project`) option.
 
@@ -590,6 +605,7 @@ To develop the website, we will be using [Next.js](https://nextjs.org/) as we ha
   ```
 
 - The website also needs to read/write data from two smart contracts - `CryptoDevsDAO` and `CryptoDevsNFT`. Let's store their contract addresses and ABIs in a constants file. Create a `constants.js` file in the `my-app` directory.
+
   ```javascript
   export const CRYPTODEVS_DAO_CONTRACT_ADDRESS = "";
   export const CRYPTODEVS_NFT_CONTRACT_ADDRESS = "";
@@ -597,6 +613,7 @@ To develop the website, we will be using [Next.js](https://nextjs.org/) as we ha
   export const CRYPTODEVS_DAO_ABI = [];
   export const CRYPTODEVS_NFT_ABI = [];
   ```
+
 - Replace the contract address and ABI values with your relevant contract addresses and ABIs.
 - Now for the actual cool website code. Open up `my-app/pages/index.js` and write the following code. Explanation of the code can be found in the comments.
 
