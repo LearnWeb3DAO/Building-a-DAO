@@ -379,13 +379,6 @@ To do so, we will use the [Hardhat](https://hardhat.org) development framework w
   fallback() external payable {}
   ```
 
-- Our contract is now DONE! Let's make sure everything compiles before proceeding. Execute the following command from your Terminal within the `hardhat-tutorial` folder.
-  ```bash
-  npx hardhat compile
-  ```
-  and make sure there are no compilation errors.
-  If you do face compilation errors, try comparing your code against the [final version present here](https://github.com/LearnWeb3DAO/Building-a-DAO/blob/main/hardhat-tutorial/contracts/CryptoDevsDAO.sol)
-
 ### Smart Contract Deployment
 
 Now that we have written both our contracts, let's deploy them to the [Rinkeby Testnet](https://rinkeby.etherscan.com). Ensure you have some ETH on the Rinkeby Testnet.
@@ -478,7 +471,13 @@ Now that we have written both our contracts, let's deploy them to the [Rinkeby T
     },
   };
   ```
-
+- Let's make sure everything compiles before proceeding. Execute the following command from your Terminal within the `hardhat-tutorial` folder.
+  ```bash
+  npx hardhat compile
+  ```
+  and make sure there are no compilation errors.
+  If you do face compilation errors, try comparing your code against the [final version present here](https://github.com/LearnWeb3DAO/Building-a-DAO/blob/main/hardhat-tutorial/contracts/CryptoDevsDAO.sol)
+  
 - Let's deploy! Execute the following command in your Terminal from the `hardhat-tutorial` directory
   ```bash
   npx hardhat run scripts/deploy.js --network rinkeby
