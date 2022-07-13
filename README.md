@@ -454,7 +454,7 @@ Now that we have written both our contracts, let's deploy them to the [Rinkeby T
 - Now, let's add the Rinkeby Network to your Hardhat Config so we can deploy to Rinkeby. Open your `hardhat.config.js` file and replace it with the following:
 
   ```javascript
-  require("@nomiclabs/hardhat-waffle");
+  require("@nomicfoundation/hardhat-toolbox");
   require("dotenv").config({ path: ".env" });
 
   const ALCHEMY_API_KEY_URL = process.env.ALCHEMY_API_KEY_URL;
@@ -462,7 +462,7 @@ Now that we have written both our contracts, let's deploy them to the [Rinkeby T
   const RINKEBY_PRIVATE_KEY = process.env.RINKEBY_PRIVATE_KEY;
 
   module.exports = {
-    solidity: "0.8.4",
+    solidity: "0.8.9",
     networks: {
       rinkeby: {
         url: ALCHEMY_API_KEY_URL,
