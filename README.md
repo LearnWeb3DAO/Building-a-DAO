@@ -64,17 +64,17 @@ To do so, we will use the [Hardhat](https://hardhat.org) development framework w
   npx hardhat
   ```
 
-  - Select `Create a basic sample project`
+  - Select `Create a Javascript project`
   - Press enter for the already specified `Hardhat Project root`
   - Press enter for the question on if you want to add a `.gitignore`
-  - Press enter for `Do you want to install this sample project's dependencies with npm (@nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers)?`
+  - Press enter for `Do you want to install this sample project's dependencies with npm (@nomicfoundation/hardhat-toolbox)?`
 
     Now you have a hardhat project ready to go!
 
-    If you are not on mac, please do this extra step and install these libraries as well :)
+    If you are on Windows, please do this extra step and install these libraries as well :)
 
     ```bash
-    npm install --save-dev @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers
+    npm install --save-dev @nomicfoundation/hardhat-toolbox
     ```
 
   and press `Enter` for all the questions (Choose the `Create a basic sample project`) option.
@@ -401,7 +401,7 @@ Now that we have written both our contracts, let's deploy them to the [Rinkeby T
   RINKEBY_PRIVATE_KEY="add-the-rinkeby-private-key-here"
   ```
 
-- Now, let's write a deployment script to automatically deploy both our contracts for us. Create a new file named `deploy.js` under `hardhat-tutorial/scripts`, and add the following code:
+- Now, let's write a deployment script to automatically deploy both our contracts for us. Create a new file, or replace the existing default one, named `deploy.js` under `hardhat-tutorial/scripts`, and add the following code:
 
   ```javascript
   const { ethers } = require("hardhat");
