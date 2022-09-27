@@ -381,24 +381,24 @@ To do so, we will use the [Hardhat](https://hardhat.org) development framework w
 
 ### Smart Contract Deployment
 
-Now that we have written both our contracts, let's deploy them to the [Rinkeby Testnet](https://rinkeby.etherscan.com). Ensure you have some ETH on the Rinkeby Testnet.
+Now that we have written both our contracts, let's deploy them to the [Goerli Testnet](https://goerli.etherscan.com). Ensure you have some ETH on the Goerli Testnet. If you don't, you can request some from [this Goerli faucet](https://goerlifaucet.com) by Alchemy.
 
 - Install the `dotenv` package from NPM to be able to use environment variables specified in `.env` files in the `hardhat.config.js`. Execute the following command in your Terminal in the `hardhat-tutorial` directory.
   ```bash
   npm install dotenv
   ```
-- Now create a `.env` file in the `hardhat-tutorial` directory and set the following two environment variables. Follow the instructions to get their values. Make sure the Rinkeby private key you use is has ETH on the Rinkeby Testnet.
+- Now create a `.env` file in the `hardhat-tutorial` directory and set the following two environment variables. Follow the instructions to get their values. Make sure the Goerli private key you use is has ETH on the Goerli Testnet.
 
   ```bash
   // Go to https://www.alchemyapi.io, sign up, create
-  // a new App in its dashboard and select the network as Rinkeby, and replace "add-the-alchemy-key-url-here" with its key url
+  // a new App in its dashboard and select the network as Goerli, and replace "add-the-alchemy-key-url-here" with its key url
   ALCHEMY_API_KEY_URL="add-the-alchemy-key-url-here"
 
-  // Replace this private key with your RINKEBY account private key
+  // Replace this private key with your GOERLI account private key
   // To export your private key from Metamask, open Metamask and
   // go to Account Details > Export Private Key
   // Be aware of NEVER putting real Ether into testing accounts
-  RINKEBY_PRIVATE_KEY="add-the-rinkeby-private-key-here"
+  GOERLI_PRIVATE_KEY="add-the-goerli-private-key-here"
   ```
 
 - Now, let's write a deployment script to automatically deploy both our contracts for us. Create a new file, or replace the existing default one, named `deploy.js` under `hardhat-tutorial/scripts`, and add the following code:
@@ -451,7 +451,7 @@ Now that we have written both our contracts, let's deploy them to the [Rinkeby T
   module.exports = { CRYPTODEVS_NFT_CONTRACT_ADDRESS };
   ```
 
-- Now, let's add the Rinkeby Network to your Hardhat Config so we can deploy to Rinkeby. Open your `hardhat.config.js` file and replace it with the following:
+- Now, let's add the Goerli Network to your Hardhat Config so we can deploy to Goerli. Open your `hardhat.config.js` file and replace it with the following:
 
   ```javascript
   require("@nomicfoundation/hardhat-toolbox");
@@ -459,14 +459,14 @@ Now that we have written both our contracts, let's deploy them to the [Rinkeby T
 
   const ALCHEMY_API_KEY_URL = process.env.ALCHEMY_API_KEY_URL;
 
-  const RINKEBY_PRIVATE_KEY = process.env.RINKEBY_PRIVATE_KEY;
+  const GOERLI_PRIVATE_KEY = process.env.GOERLI_PRIVATE_KEY;
 
   module.exports = {
     solidity: "0.8.9",
     networks: {
-      rinkeby: {
+      goerli: {
         url: ALCHEMY_API_KEY_URL,
-        accounts: [RINKEBY_PRIVATE_KEY],
+        accounts: [GOERLI_PRIVATE_KEY],
       },
     },
   };
@@ -480,7 +480,7 @@ Now that we have written both our contracts, let's deploy them to the [Rinkeby T
   
 - Let's deploy! Execute the following command in your Terminal from the `hardhat-tutorial` directory
   ```bash
-  npx hardhat run scripts/deploy.js --network rinkeby
+  npx hardhat run scripts/deploy.js --network goerli
   ```
 - Save the `FakeNFTMarketplace` and `CryptoDevsDAO` contract addresses that get printed in your Terminal. You will need those later.
 
@@ -488,7 +488,7 @@ Now that we have written both our contracts, let's deploy them to the [Rinkeby T
 
 Whew! So much coding!
 
-We've successfully developed and deployed our contracts to the Rinkeby Testnet. Now, it's time to build the Frontend interface so users can create and vote on proposals from the website.
+We've successfully developed and deployed our contracts to the Goerli Testnet. Now, it's time to build the Frontend interface so users can create and vote on proposals from the website.
 
 To develop the website, we will be using [Next.js](https://nextjs.org/) as we have so far, which is a meta-framework built on top of [React](https://reactjs.org/).
 
@@ -793,8 +793,8 @@ To develop the website, we will be using [Next.js](https://nextjs.org/) as we ha
 
       const { chainId } = await web3Provider.getNetwork();
       if (chainId !== 4) {
-        window.alert("Please switch to the Rinkeby network!");
-        throw new Error("Please switch to the Rinkeby network");
+        window.alert("Please switch to the Goerli network!");
+        throw new Error("Please switch to the Goerli network");
       }
 
       if (needSigner) {
@@ -832,7 +832,7 @@ To develop the website, we will be using [Next.js](https://nextjs.org/) as we ha
     useEffect(() => {
       if (!walletConnected) {
         web3ModalRef.current = new Web3Modal({
-          network: "rinkeby",
+          network: "goerli",
           providerOptions: {},
           disableInjectedProvider: false,
         });
