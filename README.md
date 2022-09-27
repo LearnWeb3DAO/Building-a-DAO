@@ -792,7 +792,7 @@ To develop the website, we will be using [Next.js](https://nextjs.org/) as we ha
       const web3Provider = new providers.Web3Provider(provider);
 
       const { chainId } = await web3Provider.getNetwork();
-      if (chainId !== 4) {
+      if (chainId !== 5) {
         window.alert("Please switch to the Goerli network!");
         throw new Error("Please switch to the Goerli network");
       }
